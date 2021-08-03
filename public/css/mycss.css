@@ -1,0 +1,32 @@
+.box-header.with-border{
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.box.box-primary {
+    border-top-color: #3c8dbc;
+}
+.box {
+    position: relative;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-top: 3px solid #d2d6de;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+.box-body {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 10px;
+}
+.box, .mnb-custom .tab-content .tab-pane {
+    background: #fff;
+}
+h3{
+    font-size: 18px;
+    display: inline-block;
+    line-height: 1;
+}
