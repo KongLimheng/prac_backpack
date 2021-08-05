@@ -1,10 +1,9 @@
-<li class="nav-item dropdown pr-4">
+<li class="nav-item dropdown pr-2">
   <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-    @if (backpack_user()->profile)
-      <img class="img-avatar" src="{{ asset('backpack_auth()->user()->profile') }}" alt="{{ backpack_auth()->user()->name }}">
+    @if (backpack_user()->contact->profile)
+      <img class="img-avatar" src="{{ asset(backpack_user()->contact->profile) }}" alt="{{ backpack_auth()->user()->name }}">
     @else
       <img class="img-avatar" src="{{ backpack_avatar_url(backpack_auth()->user()) }}" alt="{{ backpack_auth()->user()->name }}">
-      
     @endif
   </a>
   <div class="dropdown-menu {{ config('backpack.base.html_direction') == 'rtl' ? 'dropdown-menu-left' : 'dropdown-menu-right' }} mr-4 pb-1 pt-1">

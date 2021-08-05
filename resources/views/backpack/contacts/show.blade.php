@@ -158,7 +158,7 @@
                                                 <label>Contact Type : <a class="text-primary">{{ $entry->type }}</a></label>
                                             </div>
                                             <div class="col-md-6 pt-2">
-                                                <label>Mobile Phone : <a href="tel:" class="text-primary">{{ $entry->phone }}</a></label>
+                                                <label>Mobile Phone : <a href="tel:{{ $entry->phone }}" class="text-primary">{{ $entry->phone }}</a></label>
                                             </div>
                                             <div class="col-md-6 pt-2">
                                                 <label>Business Phone : <a href="" class="text-primary">{{ $entry->phone_2 }}</a></label>

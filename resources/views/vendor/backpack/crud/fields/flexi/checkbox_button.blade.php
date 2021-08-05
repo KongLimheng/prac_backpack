@@ -93,13 +93,8 @@
               $button.prepend('<i class="state-icon ' + setting[$button.data('state')].icon + '"></i> ');
             }
           }
-
           init();
-
         })
-
-
-
       });
     </script>
 @endpush

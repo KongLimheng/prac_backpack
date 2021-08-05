@@ -1,6 +1,6 @@
 <?php
 
-namespace Backpack\PermissionManager\app\Http\Controllers;
+namespace App\Http\Controllers\Admin\backpack\permissionmanager;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\PermissionManager\app\Http\Requests\PermissionStoreCrudRequest as StoreRequest;

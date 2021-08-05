@@ -51,7 +51,7 @@
                     </div>
                 @endif
                 @if (view()->exists('vendor.backpack.crud.form_content'))
-                    @include('vendor.backpack.crud.form_content', ['fields' => $crud->fields(), 'actions' => 'edit'])
+                    @include('vendor.backpack.crud.form_content', ['fields' => $crud->fields(), 'action' => 'edit'])
                 @else
                     @include('crud::form_content', ['fields' => $crud->fields(), 'action' => 'edit'])
                 @endif

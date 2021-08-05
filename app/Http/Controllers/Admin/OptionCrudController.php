@@ -55,10 +55,11 @@ class OptionCrudController extends CrudController
     protected function setupListOperation()
     {
         if ($this->isParentId) {
-            $this->crud->addClause('ParentNotNull', $this->isParentId);
+            $this->crud->addClause('where', 'parent_id', '=', $this->isParentId);
         } else {
-            $this->crud->addClause('ParentNull');
+            $this->crud->addClause('where', 'parent_id', '=', null);
         }
+
         CRUD::addColumn([
             'name'      => 'row_number',
             'type'      => 'row_number',

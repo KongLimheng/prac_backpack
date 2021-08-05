@@ -73,20 +73,20 @@ class ContactsRequest extends FormRequest
     //         ['working_field.required'=> trans('user.your first name is required')],
     //     ];
     // }
-    public function withValidator($validator)
-    {
-        $validator->after(function ($validator){
-            if($this->is_vip){
-                if(!$this->working_field){
-                    $validator->errors()->add('occupation', 'The occupation is required when Is VIP Contact.');
-                }
-                if(!$this->occupation){
-                    $validator->errors()->add('occupation', 'The occupation is required when Is VIP Contact.');
-                }
-                if(!$this->relationships){
-                    $validator->errors()->add('relationships', 'The occupation is required when Is VIP Contact.');
-                }
-            }
-        });
-    }
+    // public function withValidator($validator)
+    // {
+    //     $validator->after(function ($validator){
+    //         if($this->is_vip){
+    //             if(!$this->working_field){
+    //                 $validator->errors()->add('occupation', 'The occupation is required when Is VIP Contact.');
+    //             }
+    //             if(!$this->occupation){
+    //                 $validator->errors()->add('occupation', 'The occupation is required when Is VIP Contact.');
+    //             }
+    //             if(!$this->relationships){
+    //                 $validator->errors()->add('relationships', 'The occupation is required when Is VIP Contact.');
+    //             }
+    //         }
+    //     });
+    // }
 }

@@ -12,6 +12,18 @@
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('permission') }}"><i class="nav-icon la la-key"></i> <span>Permissions</span></a></li>
     </ul>
 </li>
+<li class="nav-item nav-dropdown">
+    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> CRM</a>
+    <ul class="nav-dropdown-items">
+        <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-users"></i> Leads</a>
+            <ul class="nav-dropdown-items">
+                <li class='nav-item'><a class='nav-link' href='{{ backpack_url('leads') }}'><i class='nav-icon la la-question'></i> Leads List</a></li>
+            </ul>
+        </li>
+    </ul>
+</li>
+
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('setting') }}'><i class='nav-icon la la-cog'></i> <span>Settings</span></a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('backup') }}'><i class='nav-icon la la-hdd-o'></i> Backups</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('option') }}'><i class='nav-icon la la-question'></i> Options</a></li>

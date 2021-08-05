@@ -12,7 +12,6 @@
   </div>
 @endif
 
-
 {{-- Define blade stacks so css and js can be pushed from the fields to these sections. --}}
 
 @section('after_styles')

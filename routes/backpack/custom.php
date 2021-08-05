@@ -29,4 +29,5 @@ Route::group([
     });
 
     Route::post('convertUser', 'API\Users\userController@store')->name('user.convertUser');
+    Route::crud('leads', 'LeadsCrudController');
 }); // this should be the absolute last line of this file

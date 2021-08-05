@@ -17,7 +17,7 @@
 
         <div class="box-body">
             <div class="box-body box-profile p-0">
-                <div class="border-box text-center pb-2">
+                <div class="border-box text-center pb-2">   
                     @if (!$entry->contact->profile)
                         <img src="{{ asset('img\default-user.png') }}"
                             alt="..."

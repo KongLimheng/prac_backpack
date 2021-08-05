@@ -50,12 +50,12 @@ class ContactsCrudController extends CrudController
         $this->crud->setEditView('backpack.contacts.edit');
 
         $this->crud->denyAccess(['create', 'delete','show','update']);
-        // if(backpack_user()->hasRole('dev')){
-        //     $this->crud->allowAccess(['list', 'create', 'delete','edit']);
-        // }
-        if(backpack_user()->hasPermissionTo('contact create')){
-            $this->crud->allowAccess('create');
+        if(backpack_user()->hasRole('dev')){
+            $this->crud->allowAccess(['list','show', 'create', 'delete','update']);
         }
+        // if(backpack_user()->hasPermissionTo('contact create')){
+        //     $this->crud->allowAccess('create');
+        // }
 
     }
 
@@ -291,19 +291,19 @@ class ContactsCrudController extends CrudController
                 'tab'   => 'Contact Info',
                 'wrapperAttributes' => $colMd6
             ],
-            [
-                'label' => "Region",
-                'name' => "khaddress",
-                'type' => 'select2_multiple',
-                'entity'      => 'AddressCity', // the method that defines the relationship in your Model
-                'attribute'   => "_name_en", // foreign key attribute that is shown to user
-                'model' => 'App\Models\Address',
-                // 'value' => '_code',
-                'pivot'     => true,
-                'select_all' => true, 
-                'tab' => 'Contact Info',
-                'wrapper' => $colMd6
-            ],
+            // [
+            //     'label' => "Region",
+            //     'name' => "khaddress",
+            //     'type' => 'select2_multiple',
+            //     'entity'      => 'AddressCity', // the method that defines the relationship in your Model
+            //     'attribute'   => "_name_en", // foreign key attribute that is shown to user
+            //     'model' => 'App\Models\Address',
+            //     // 'value' => '_code',
+            //     'pivot'     => true,
+            //     'select_all' => true, 
+            //     'tab' => 'Contact Info',
+            //     'wrapper' => $colMd6
+            // ],
         ]);
         // CRUD::addField([
         //     // Select2Multiple = n-n relationship (with pivot table)
@@ -546,8 +546,22 @@ class ContactsCrudController extends CrudController
         $this->crud->addField(['type' => 'hidden', 'name'=> 'created_by']);
 
         $res = $this->traitStore();
-        debugbar()->info($res);
         return $res;
+    }
+
+    public function update()
+    {
+        $userId = backpack_user()->id;
+        $contactId = DB::table('contacts')->where('user_id_fk', $userId)->first(['id']);
+        request()->merge([
+            'updated_by' => $contactId->id
+        ]);
+       
+        $this->crud->addField(['type'=> 'hidden', 'name'=> 'updated_by']);
+
+        $res = $this->traitUpdate();
+        return $res;
+
     }
 
     public function fetchContact()

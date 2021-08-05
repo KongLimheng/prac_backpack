@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\types;
+namespace Database\Seeders;
 
 use App\Traits\Type\CreateTypeSeederTrait;
 use Illuminate\Database\Seeder;

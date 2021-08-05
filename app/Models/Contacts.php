@@ -101,18 +101,13 @@ class Contacts extends Model
         return $this->belongsTo(Contacts::class,'created_by');
     }
     public function ContactsUpdatedName() {
-        return $this->belongsTo(Contacts::class,'created_by');
+        return $this->belongsTo(Contacts::class,'updated_by');
     }
     public function ContactOwner()
     {
         return $this->belongsTo(Contacts::class, 'owner_account_id');
     }
-    public function AddressCity(){
-        $this->optionsRepo = resolve(OptionRepository::class);
-        $this->options = collect($this->optionsRepo->getTypesByParentIDs([7], false))->groupBy('parent_id');
-        // debugbar()->info($this->options);
-        return $this->options->pluck('value', 'value');
-    }
+    
     // public function accountEntity()
     // {
     //     return $this->belongsTo(Account::class, 'account_id', 'id');
@@ -127,7 +122,7 @@ class Contacts extends Model
     // }
     public function addressEntity()
     {
-        return $this->belongsTo(\App\Models\Address::class, 'address', '_code');
+        return $this->belongsTo(Address::class, 'address', '_code');
     }
     // public function addressAccountEntity()
     // {

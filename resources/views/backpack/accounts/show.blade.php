@@ -13,7 +13,8 @@
 
 @section('header')
     <section class="container-fluid d-print-none">
-        <a href="javascript: window.print();" class="btn btn-primary float-right"><i class="la la-print"></i></a>
+        <a href="javascript: window.print();" class="btn btn-primary btn-sm float-right"><i class="la la-print"></i></a>
+        <a href="{{ url($crud->route . '/' . $entry->getKey() . '/edit') }}" class="btn btn-warning btn-sm float-right mx-2"><i class="la la-edit"></i></a>
         <h2>
             <span class="text-capitalize">{!! $crud->getHeading() ?? $crud->entity_name_plural !!}</span>
             <small>{!! $crud->getSubheading() ?? mb_ucfirst(trans('backpack::crud.preview')) . ' ' . $crud->entity_name !!}.</small>
@@ -36,7 +37,7 @@
                 <div class="box-body">
                     <div class="box-body box-profile p-0">
                         @if (!$entry->logo)
-                            <img src="{{ asset('uploads\images\default.png') }}" alt="..."
+                            <img src="{{ asset('uploads/profile/R.png') }}" alt="..."
                                 class="profile-user-img img-responsive img-fluid d-block mx-auto rounded-circle img-thumbnail">
                         @else
                             <img src="{{ asset($entry->logo) }}" alt="..."
@@ -56,7 +57,7 @@
                         </li>
                         <li class="list-group-item border-left-0 border-right-0">
                             <em class="nav-icon la la-envelope mr-1"></em>
-                            <a class="text-dark text-break" href="mailto:">{{ $entry->email }}</a>
+                            <a class="text-dark text-break" href="mailto:{{ $entry->email }}">{{ $entry->email }}</a>
                         </li>
                         <li class="list-group-item border-left-0 border-right-0">
                             <strong><em class="la la-industry mr-1"></em></strong>
@@ -179,7 +180,7 @@
                                                     <span>{{ $entry->billing_address }}</span></label>
                                             </div>
                                             <div class="col-md-6 pt-2">
-                                                <label> Email : <span>{{ $entry->email }}</span></label>
+                                               <label>Email :<a href="mailto:{{ $entry->email }}">  <span>{{ $entry->email }}</span></a></label> 
                                             </div>
                                             <div class="col-md-6 pt-2">
                                                 <label> Address :
